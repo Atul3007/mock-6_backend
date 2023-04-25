@@ -4,7 +4,7 @@ const { usermodel } = require("../models/user.model");
 const bcrypt=require("bcrypt");
 const jwt=require("jsonwebtoken");
 
-user_router.post("/", async (req, res) => {
+user_router.post("/register", async (req, res) => {
     const {name,email,pass} = req.body
     try {
         bcrypt.hash(pass,5 , async(err, secure_password)=> {
@@ -22,7 +22,7 @@ user_router.post("/", async (req, res) => {
         console.log(error);
     }
 })
-user_router.post("/", async (req, res) => {
+user_router.post("/login", async (req, res) => {
     const { email, pass } = req.body;
     try {
         const user = await usermodel.find({email});

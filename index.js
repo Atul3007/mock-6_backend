@@ -12,11 +12,11 @@ app.get("/api", (req, res) => {
 app.use(cors({
     origin: '*'
 }));
-app.use("/api/login",user_router); 
-app.use("/api/register",user_router); 
+ 
+app.use("/api/",user_router); 
 app.use(authhenticate);
 app.use("/api/flight",note_router);
-app.listen(4500, async () => {
+app.listen(8000, async () => {
     try {
         await connection;
         console.log("Connected to Db");
